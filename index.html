@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siegen Vue</title>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+  <div id="app">
+    <div id="calculator">
+      <header>Calculates Transport Cost</header>
+      <aside>Total Cost: <span>${{ transportCost }}</span></aside>
+      <main>
+        <div class="row">
+          <label for="vechile_category">
+            Vehicle Category
+            <v-select v-model="vehicle_category" :options="vehicleCategories" first-item="Choose a category"></v-select>
+          </label>
+          <label for="vehicle_type">
+            Vehicle Type
+            <v-select v-model="vehicle_type" :options="vehicleTypes" first-item="Choose a type"></v-select>
+          </label>
+        </div>
+        <div class="row">
+          <label for="road_paved_km">Road Paved<input name="road_paved_km" type="text" /></label>
+          <label for="road_unpaved_km">Road Unpaved<input name="road_unpaved_km" type="text" /></label>
+          <label for="cargo_wright">Cargo Weight<input name="cargo_wright" type="text" /></label>
+        </div>
+      </main>
+      <footer>
+        <button>Calculate</button>
+      </footer>
+    </div>
+  </div>
+  <script src="./main.js"></script>
+  <script src="./components/Select.js"></script>
+  <script>
+    const mountedApp = app.mount('#app');
+  </script>
+</body>
+</html>
