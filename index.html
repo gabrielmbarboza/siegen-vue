@@ -10,6 +10,7 @@
 </head>
 <body>
   <div id="app">
+    <notify :list="errors" @close="notifyClose"></notify>
     <div id="calculator">
       <header>Calculates Transport Cost</header>
       <aside>Total Cost: <span>${{ transportCost }}</span></aside>
@@ -17,26 +18,27 @@
         <div class="row">
           <label for="vechile_category">
             Vehicle Category
-            <v-select v-model="vehicle_category" :options="vehicleCategories" first-item="Choose a category"></v-select>
+            <v-select v-model="vehicleCategory" :options="vehicleCategories" first-item="Choose a category"></v-select>
           </label>
           <label for="vehicle_type">
             Vehicle Type
-            <v-select v-model="vehicle_type" :options="vehicleTypes" first-item="Choose a type"></v-select>
+            <v-select v-model="vehicleType" :options="vehicleTypes" first-item="Choose a type"></v-select>
           </label>
         </div>
         <div class="row">
-          <label for="road_paved_km">Road Paved<input name="road_paved_km" type="text" /></label>
-          <label for="road_unpaved_km">Road Unpaved<input name="road_unpaved_km" type="text" /></label>
-          <label for="cargo_wright">Cargo Weight<input name="cargo_wright" type="text" /></label>
+          <label for="pavedRoadKm">Paved Road<input v-model.number="pavedRoadKm" type="text" /></label>
+          <label for="unpavedRoadKm">Unpaved Road<input v-model.number="unpavedRoadKm" type="text" /></label>
+          <label for="cargo_weight">Cargo Weight<input v-model.number="cargoWeight" type="text" /></label>
         </div>
       </main>
       <footer>
-        <button>Calculate</button>
+        <button @click="calculate">Calculate</button>
       </footer>
     </div>
   </div>
   <script src="./main.js"></script>
   <script src="./components/Select.js"></script>
+  <script src="./components/Notify.js"></script>
   <script>
     const mountedApp = app.mount('#app');
   </script>
