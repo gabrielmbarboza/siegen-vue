@@ -15,9 +15,9 @@ app.component("notify", {
   },
   template: `
   <div class="notifies">
-    <div v-for="(notify, index) in list" class="notify">
+    <div v-for="notify in list" class="notify slide-x">
       <div class="message">{{ notify }}</div>
-      <div @click="close" class="close" :data-notify-index="index">X</div>   
+      <div @click="close" class="close">X</div>   
     </div>
   </div>
   `,
