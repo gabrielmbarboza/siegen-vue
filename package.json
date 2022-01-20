@@ -1,0 +1,11 @@
+{
+  "name": "siegen-vue",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "https://github.com/gabrielmbarboza/siegen-vue",
+  "author": "Gabriel Barboza",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  }
+}
