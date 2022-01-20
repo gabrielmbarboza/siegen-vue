@@ -54,6 +54,8 @@ const app = Vue.createApp({
         cargoWeightValid
       ) {
         this.transportCost = "152.56";
+      } else {
+        this.transportCost = "0.00";
       }
 
       event.preventDefault();
