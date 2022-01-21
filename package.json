@@ -5,6 +5,9 @@
   "repository": "https://github.com/gabrielmbarboza/siegen-vue",
   "author": "Gabriel Barboza",
   "license": "MIT",
+  "scripts": {
+    "start" : "npx http-server"
+  },
   "devDependencies": {
     "http-server": "^14.1.0"
   }
