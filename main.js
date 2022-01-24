@@ -53,7 +53,24 @@ const app = Vue.createApp({
         unpavedRoadKmValid &&
         cargoWeightValid
       ) {
-        this.transportCost = "152.56";
+        let url = new URL("http://localhost:8080/cost/calculation");
+        url.searchParams.append("vehicle_category", this.vehicleCategory);
+        url.searchParams.append("vehicle_type", this.vehicleType);
+        url.searchParams.append("paved_km", this.pavedRoadKm);
+        url.searchParams.append("unpaved_km", this.unpavedRoadKm);
+        url.searchParams.append("weight_cargo", this.cargoWeight);
+
+        fetch(url, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((transportCost) => {
+            this.transportCost = "152.56";
+          })
+          .catch((error) => this.addError(error.message));
       } else {
         this.transportCost = "0.00";
       }
