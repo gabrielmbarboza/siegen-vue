@@ -13,7 +13,10 @@
     <notify :list="errors" @close="notifyClose"></notify>
     <div id="calculator">
       <header>Calculates Transport Cost</header>
-      <aside>Total Cost: <span>${{ transportCost }}</span></aside>
+      <aside>Total Cost: 
+        <span>${{ totalCost }}</span>
+        <tooltip :content="transportCost" v-if="transportCost.lenght"></tooltip>
+      </aside>
       <main>
         <div class="row">
           <label for="vechile_category">
@@ -39,6 +42,7 @@
   <script src="./main.js"></script>
   <script src="./components/Select.js"></script>
   <script src="./components/Notify.js"></script>
+  <script src="./components/Tooltip.js"></script>
   <script>
     const mountedApp = app.mount('#app');
   </script>

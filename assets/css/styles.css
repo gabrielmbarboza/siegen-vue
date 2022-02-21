@@ -59,18 +59,83 @@ aside span {
   padding-left: .75rem;
 }
 
-main {
+.tooltip {
+  color: #FFFFFF;
+  display: inline-block;
+  opacity: 0;
+  padding: 5px;
+  position: relative;
+  transition: all 0.5s;
+  visibility: hidden;
+}
+
+.tooltip .tooltip-content {
+  background-color: #01a111;
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-size: 14px;
+  left: 110%;
+  padding: 10px;
+  position: absolute;
+  top: -20px;
+  z-index: 1;
+}
+
+.tooltip .tooltip-content::after {
+  border-color: transparent #01a111 transparent transparent;
+  border-style: solid;
+  border-width: 8px;
+  content: " ";
+  margin-left: -5px;
+  position: absolute;
+  right: 100%;
+  top: 10%;
+}
+
+span:hover + .tooltip {
+  opacity: 1;
+  transition: all 0.5s;
+  visibility: visible;
+}
+
+.tooltip-content .tooltip-title {
+  align-items: center;
+  border-bottom: 1px dashed #c9c9c9;
+  display: flex;
+  font-weight: 400;
+  height: 30px;
+  justify-content: center;
+}
+
+.tooltip-content .tooltip-info {
   display: flex;
   flex-direction: column;
-  height: 12.5rem;
+  gap: 20px;
+  height: 110px;
+  padding-top: 10px;
+  justify-content: center;
+  width: 300px;
+}
+
+.tooltip-content .tooltip-info  span {
+  font-weight: 400;
+}
+
+.tooltip-row {
+  color: #FFFFFF !important;
+  display: flex;
   justify-content: space-between;
+}
+
+.tooltip-row span {
+  color: #FFFFFF !important;
 }
 
 .row {
   align-items: space-between;
   display: flex;
   justify-content: center;
-  padding: 0.625rem;
+  padding: 0.685rem;
   gap: 2rem;
 }
 
@@ -82,18 +147,23 @@ label {
 }
 
 label select {
+  border: 1px solid #C0C0C0;
+  border-radius: 4px;
   font-size: 1.2rem;
   height: 3rem;
   margin-top: .75rem;
+  padding-left: 10px;
   width: 15rem;
 }
 
 label input {
+  border: 1px solid #C0C0C0;
   border-radius: 4px;
   font-size: 1.2rem;
   height: 2.5rem;
   margin-top: .75rem;
-  width: 8.8rem; 
+  padding-left: 10px;
+  width: 8.5rem; 
 }
 
 footer {

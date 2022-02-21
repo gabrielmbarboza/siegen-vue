@@ -4,7 +4,8 @@ const app = Vue.createApp({
       pavedRoadKm: 0,
       unpavedRoadKm: 0,
       cargoWeight: 0,
-      transportCost: "0.00",
+      transportCost: {},
+      totalCost: "0.00",
       vehicleCategories: [{ label: "Truck", code: "TRUCK" }],
       vehicleTypes: [
         { label: "Dump", code: "DUMP" },
@@ -68,11 +69,11 @@ const app = Vue.createApp({
         })
           .then((response) => response.json())
           .then((transportCost) => {
-            this.transportCost = "152.56";
+            this.totalCost = "152.56";
           })
           .catch((error) => this.addError(error.message));
       } else {
-        this.transportCost = "0.00";
+        this.totalCost = "0.00";
       }
 
       event.preventDefault();
